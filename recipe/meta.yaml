@@ -12,15 +12,17 @@ source:
 
 build:
   number: 0
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
+  skip: true   #[py<37]
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python
+    - setuptools
+    - wheel
   run:
-    - python >=3.6
+    - python
     - absl-py >=0.9.0
     - dm-tree >=0.1.5
     - jax >=0.1.55
