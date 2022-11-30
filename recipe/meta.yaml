@@ -39,8 +39,19 @@ test:
 about:
   home: https://github.com/deepmind/chex
   summary: 'Chex: Testing made fun, in JAX!'
+  description: |
+    Chex is a library of utilities for helping to write reliable JAX code.
+
+    This includes utils to help:
+
+    - Instrument your code (e.g. assertions)
+    - Debug (e.g. transforming pmaps in vmaps within a context manager).
+    - Test JAX code across many variants (e.g. jitted vs non-jitted).
   license: Apache-2.0
+  license_family: Apache
   license_file: LICENSE
+  dev_url: https://github.com/deepmind/chex
+  doc_url: https://chex.readthedocs.io
 
 extra:
   recipe-maintainers:
