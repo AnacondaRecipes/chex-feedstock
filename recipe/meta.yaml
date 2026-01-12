@@ -13,7 +13,7 @@ build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   # Matches jaxlib-feedstock's compatibility
-  skip: true  # [s390x or py<311]
+  skip: true  # [py<311]
 
 requirements:
   host:
