@@ -1,36 +1,32 @@
 {% set name = "chex" %}
-{% set version = "0.1.89" %}
+{% set version = "0.1.91" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/chex-{{ version }}.tar.gz
-  sha256: 78f856e6a0a8459edfcbb402c2c044d2b8102eac4b633838cbdfdcdb09c6c8e0
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/chex-{{ version }}.tar.gz
+  sha256: 65367a521415ada905b8c0222b0a41a68337fcadf79a1fb6fc992dbd95dd9f76
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
-  # Matches jaxlib-feedstock's compatibility
-  skip: true  # [s390x or py<310]
+  skip: true  # [py<311]
 
 requirements:
   host:
     - pip
     - python
-    - setuptools
-    - wheel
+    - flit-core >=3.2,<4
   run:
     - python
-    - absl-py >=0.9.0
-    - dm-tree >=0.1.5
-    - jax >=0.4.27
+    - absl-py >=2.3.1
+    - typing_extensions >=4.15.0
+    - jax >=0.7.0
+    - jaxlib >=0.7.0
     - numpy >=1.24.1
-    - toolz >=0.9.0
-    - typing_extensions >=4.2.0
-    - jaxlib >=0.4.27
-    - setuptools  # [py>=312]
+    - toolz >=1.0.0
 
 test:
   imports:
@@ -49,7 +45,7 @@ test:
 
 about:
   home: https://github.com/deepmind/chex
-  summary: 'Chex: Testing made fun, in JAX!'
+  summary: "Chex: Testing made fun, in JAX!"
   description: |
     Chex is a library of utilities for helping to write reliable JAX code.
 
